@@ -2,6 +2,8 @@ def method_name
   p "sdfsdf"
 end
 
-s = [1, 20, "sdfds"]
+s = [1, 20, "sdfds", "XCsfdfsdf", { :d => "ddd", :a => "ssssss" }, "adas"]
 
-ff = "fsdfsdf"
+s.each do |item|
+  p item
+end
