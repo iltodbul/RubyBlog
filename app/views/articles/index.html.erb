@@ -3,12 +3,7 @@
 <ul>
   <% @articles.each do |article| %>
     <li>
-      <%= article.title %>
-    </li>
-    <li>
-      <% time = article.created_at.localtime %>
-      Article created at:
-      <%= time.strftime("%d/%m/%Y - %H:%M:%S") %>
+      <%= link_to article.title, article %>
     </li>
   <% end %>
 </ul>
