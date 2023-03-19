@@ -72,6 +72,7 @@ group :test do
 end
 
 gem 'erb-formatter'
+
 gem "cssbundling-rails", "~> 1.1"
 
 gem "jsbundling-rails", "~> 1.1"

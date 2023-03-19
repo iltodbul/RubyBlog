@@ -1,6 +1,6 @@
 
-<%= form_with model: article  do |form|%>
-  <div>
+<%= form_with model: article do |form| %>
+  <div class="mb-3">
     <%= form.label :title %><br>
     <%= form.text_field :title %>
     <% article.errors.full_messages_for(:title).each do |message| %>
@@ -8,7 +8,7 @@
     <% end %>
   </div>
 
-  <div>
+  <div class="mb-3">
     <%= form.label :body %><br>
     <%= form.text_area :body %><br>
     <% article.errors.full_messages_for(:body).each do |message| %>
@@ -16,9 +16,8 @@
     <% end %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="mb-3">
+    <%= form.submit class: "btn btn-primary" %>
+    <%= link_to "Cancel", root_path, class: "btn btn-primary" %> 
   </div>
-  
 <% end %>
-

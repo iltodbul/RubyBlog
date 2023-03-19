@@ -1,14 +1,18 @@
-<h1><%= @article.title %></h1>
+Article title:
+<h3><%= @article.title %></h3>
 
 <p><%= @article.body %></p>
 
-<ul>
-  <li><%= link_to "Edit", edit_article_path(@article) %></li>
-  <li><%= link_to "Destroy",
-    article_path(@article),
-    data: {
-      turbo_method: :delete,
-      turbo_confirm: "Are you sure?"
-    } %></li>
-  <li><%= link_to "Show all articles", root_path %></li>
-</ul>
+<div class="mb-3">
+  <%= link_to "Edit", edit_article_path(@article), class: "btn btn-success" %>
+  <%= link_to "Destroy",
+  article_path(@article),
+  data: {
+    turbo_method: :delete,
+    turbo_confirm: "Are you sure?"
+  },
+  class: "btn btn-danger" %>
+</div>
+<div class="mb-3">
+  <%= link_to "Show all articles", root_path, class: "btn btn-primary" %>
+</div>
