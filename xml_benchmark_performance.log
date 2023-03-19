@@ -1,0 +1,89 @@
+Are the renderers consistent?
+true
+
+------------------
+Benchmark of post1
+------------------
+                 user     system      total        real
+builder:     1.468000   0.016000   1.484000 (  1.553480)
+nokogiri:    1.422000   0.000000   1.422000 (  1.506382)
+ox:          0.578000   0.484000   1.062000 (  2.306548)
+
+Results in ms per execution:
+>>>>> builder: - 1.553 ms
+>>>>> nokogiri: - 1.506 ms
+>>>>> ox: - 2.307 ms
+
+Calculating -------------------------------------
+            builder:    92.881k memsize (    16.536k retained)
+                         1.311k objects (    19.000  retained)
+                        50.000  strings (     4.000  retained)
+           nokogiri:    81.315k memsize (     5.784k retained)
+                         1.248k objects (   117.000  retained)
+                        44.000  strings (     1.000  retained)
+                 ox:    32.232k memsize (    88.000  retained)
+                       451.000  objects (     1.000  retained)
+                        37.000  strings (     1.000  retained)
+
+Comparison:
+                 ox::      32232 allocated
+           nokogiri::      81315 allocated - 2.52x more
+            builder::      92881 allocated - 2.88x more
+
+------------------
+Benchmark of post2
+------------------
+                 user     system      total        real
+builder:    78.703000   1.422000  80.125000 ( 80.518151)
+nokogiri:   35.406000   1.235000  36.641000 ( 37.518621)
+ox:         16.282000   9.312000  25.594000 ( 40.656895)
+
+Results in ms per execution:
+>>>>> builder: - 80.518 ms
+>>>>> nokogiri: - 37.519 ms
+>>>>> ox: - 40.657 ms
+
+Calculating -------------------------------------
+            builder:     6.226M memsize (     1.578M retained)
+                        23.181k objects (    19.000  retained)
+                        50.000  strings (     4.000  retained)
+           nokogiri:     5.185M memsize (     1.041k retained)
+                        22.473k objects (     1.000  retained)
+                        50.000  strings (     1.000  retained)
+                 ox:     1.750M memsize (    88.000  retained)
+                         7.861k objects (     1.000  retained)
+                        50.000  strings (     1.000  retained)
+
+Comparison:
+                 ox::    1749780 allocated
+           nokogiri::    5185484 allocated - 2.96x more
+            builder::    6225731 allocated - 3.56x more
+
+------------------
+Benchmark of post3
+------------------
+                 user     system      total        real
+builder:   963.984000  19.172000 983.156000 (1009.471211)
+nokogiri:  442.156000  18.734000 460.890000 (468.370858)
+ox:        184.188000  95.219000 279.407000 (424.701901)
+
+Results in ms per execution:
+>>>>> builder: - 1009.471 ms
+>>>>> nokogiri: - 468.371 ms
+>>>>> ox: - 424.702 ms
+
+Calculating -------------------------------------
+            builder:    74.965M memsize (    25.176M retained)
+                       230.181k objects (    20.000  retained)
+                        50.000  strings (     5.000  retained)
+           nokogiri:    67.281M memsize (     5.041k retained)
+                       224.144k objects (     1.000  retained)
+                        50.000  strings (     1.000  retained)
+                 ox:    20.457M memsize (    88.000  retained)
+                        78.061k objects (     1.000  retained)
+                        50.000  strings (     1.000  retained)
+
+Comparison:
+                 ox::   20457428 allocated
+           nokogiri::   67280691 allocated - 3.29x more
+            builder::   74965147 allocated - 3.66x more
