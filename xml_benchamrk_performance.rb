@@ -44,7 +44,8 @@ end
 
 post1 = create_post(1_000, 10, 0)
 post2 = create_post(1_000_000, 200, 1_000)
-post3 = create_post(5_000_000, 2_000, 5_000)
+# post3 = create_post(5_000_000, 2_000, 5_000)
+post3 = create_post(5, 2, 5)
 
 # uses Builder
 # https://github.com/rails/rails/blob/5-2-stable/activesupport/lib/active_support/core_ext/hash/conversions.rb#L75-L92
@@ -423,3 +424,5 @@ puts ([render_builder(post1), render_nokogiri(post1),
     x.compare!
   end
 end
+
+p "Done!"

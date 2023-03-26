@@ -16,3 +16,33 @@ Article title:
 <div class="mb-3">
   <%= link_to "Show all articles", root_path, class: "btn btn-primary" %>
 </div>
+
+<h2>Comments</h2>
+<% @article.comments.each do |comment| %>
+  <p class="lead">
+    <strong>Commenter:</strong>
+    <%= comment.commenter %>
+  </p>
+
+  <p>
+    <strong>Comment:</strong>
+    <%= comment.body %>
+  </p>
+<% end %>
+
+<h2>Add a comment:
+</h2>
+<%= form_with model:[@article, @article.comments.build] do |form| %>
+  <div class="mb-3">
+    <%= form.label :commenter %><br>
+    <%= form.text_field :commenter %>
+  </div>
+  <div class="mb-3">
+    <%= form.label :body %><br>
+    <%= form.text_area :body %>
+  </div>
+  <div class="mb-3">
+    <%= form.submit class: "btn btn-primary" %>
+  </div>
+
+<% end %>
