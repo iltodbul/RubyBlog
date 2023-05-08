@@ -1,7 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="<%= I18n.locale %>">
   <head>
     <title>Blog</title>
+     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -12,6 +14,11 @@
   </head>
 
   <body class= "container">
+    <header class="container mt-4 mb-4">
+    <a href="https://render.com">
+      <%= image_tag 'render.png', class: 'mw-100' %>
+    </a>
+  </header>
     <%= yield %>
   </body>
 </html>
