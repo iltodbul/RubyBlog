@@ -1,0 +1,18 @@
+databases:
+  - name: ilo_blog_rails
+    databaseName: ilo_blog_rails
+    user: ilo_blog_rails_user
+
+services:
+  - type: web
+    name: ilo_rails_blog
+    env: ruby
+    buildCommand: './bin/render-build.sh'
+    startCommand: 'bundle exec puma -C config/puma.rb'
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: ilo_blog_rails
+          property: connectionString
+      - key: RAILS_MASTER_KEY
+        sync: false
