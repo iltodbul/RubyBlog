@@ -2,8 +2,34 @@
 <html lang="<%= I18n.locale %>">
   <head>
     <title>Blog</title>
-     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <style>
+      body.dark {
+        background-color: #000;
+        color: #fff;
+      }
+      body {
+        background-color: #fff;
+        color: #000;
+      }
+      button {
+        background-color: #29bd29;
+        color: #fff;
+        border: 1px solid #000;
+      }
+
+      button.dark {
+        background-color: #a73131;
+        color: #000;
+        border: 1px solid #fff;
+        padding: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+    </style>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -13,12 +39,30 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
-  <body class= "container">
+  <body class="container">
     <header class="container mt-4 mb-4">
-    <a href="https://render.com">
-      <%= image_tag 'render.png', class: 'mw-100' %>
-    </a>
-  </header>
+      <a href="https://render.com">
+        <%= image_tag "render.png", class: "mw-100" %>
+      </a>
+      <button id="theme-toggle">Switch to dark theme</button>
+    </header>
     <%= yield %>
   </body>
+  <script>
+    const toggle = document.getElementById('theme-toggle');
+    const body = document.body;
+
+    function toggleTheme() {
+      body.classList.toggle('dark');
+      toggle.classList.toggle('dark');
+      toggle.innerHTML = body.classList.contains('dark')
+        ? 'Switch to light theme'
+        : 'Switch to dark theme';
+    }
+
+    window.addEventListener('load', () => {
+      // toggleTheme();
+      toggle.addEventListener('click', toggleTheme);
+    });
+  </script>
 </html>
